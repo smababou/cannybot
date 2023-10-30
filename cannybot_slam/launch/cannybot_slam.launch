@@ -1,0 +1,22 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="open_rviz" default="true"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen"/>
+
+  <!-- This package publishes sensor_msgs/JointState messages for a robot. -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"
+        respawn="false" output="screen"/>
+
+  <!-- SLAM: Gmapping -->
+  <include file="$(find cannybot_slam)/launch/cannybot_gmapping.launch">
+  </include>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find cannybot_slam)/rviz/cannybot_gmapping.rviz"/>
+  </group>
+</launch>

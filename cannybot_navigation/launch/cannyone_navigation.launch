@@ -1,0 +1,29 @@
+<!-- 
+    CannyOne navigation stack
+-->
+<launch>
+
+  <!-- Args -->
+  <arg name="rviz_config"   default="house" />
+  <arg name="odom_topic"  	default="mobile_base_controller/odom" />
+  <arg name="cmd_vel_topic" default="/mobile_base_controller/cmd_vel" />
+
+  <!-- Launch RVIZ -->
+  <include file="$(find cannybot_simulation)/launch/cannybot_rviz_$(arg rviz_config).launch">
+    <arg name="rviz_config" value="$(arg rviz_config)"/>
+    <arg name="map_file" 		value="$(arg rviz_config)"/>
+    <arg name="fake_tf" 		value="false"/>
+  </include>
+
+  <!-- Launch AMCL -->
+  <include file="$(find cannybot_navigation)/launch/cannybot_amcl.launch"/>
+
+  <!-- Launch CannyOne Move Base -->
+  <include file="$(find cannybot_navigation)/launch/move_base.launch">
+    <arg name="global" 								value="true"/>
+    <arg name="move_forward_only" 		value="true"/>
+    <arg name="odom_topic" 						value="/$(arg odom_topic)"/>
+    <arg name="cmd_vel_topic" 				value="/$(arg cmd_vel_topic)"/>
+  </include>
+
+</launch>

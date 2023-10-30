@@ -1,0 +1,10 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="map_file" default="house"/>
+
+  <!-- Launch Map Server -->
+  <node pkg="map_server" type="map_server" name="map_server" 
+        args="$(find cannybot_maps)/maps/$(arg map_file).yaml"> 
+  </node>
+  
+</launch>

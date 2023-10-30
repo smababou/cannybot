@@ -1,0 +1,6 @@
+<launch>
+
+  <!-- turtlebot3_teleop_key already has its own built in velocity smoother -->
+  <node pkg="cannybot_teleop" type="cannybot_teleop_key.py" name="cannybot_teleop_keyboard"  output="screen">
+  </node>
+</launch>
