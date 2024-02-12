@@ -19,5 +19,5 @@ roslaunch cannybot_simulation cannybot_house.launch
 
 ### 2nd Terminal
 ```console
-roslaunch cannybot_navigation cannyone_navigation.launch 
+roslaunch cannybot_navigation cannybot_navigation.launch 
 ```
