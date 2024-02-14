@@ -13,8 +13,8 @@ local_costmap:
   
   static_map: false
   rolling_window: true
-  width: 3
-  height: 3
+  width: 2
+  height: 2
   resolution: 0.05
   inflation_radius: 0.01
   cost_scaling_factor: 0.5   

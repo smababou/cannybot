@@ -22,6 +22,7 @@
   <include file="$(find cannybot_navigation)/launch/move_base.launch">
     <arg name="global" 								value="true"/>
     <arg name="move_forward_only" 		value="true"/>
+    <arg name="teb_local_planner" 		value="true"/>
     <arg name="odom_topic" 						value="/$(arg odom_topic)"/>
     <arg name="cmd_vel_topic" 				value="/$(arg cmd_vel_topic)"/>
   </include>
